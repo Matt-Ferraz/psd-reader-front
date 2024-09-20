@@ -17,6 +17,7 @@ const EditPSDPage: React.FC = () => {
             'https://images.unsplash.com/photo-1615915468538-0fbd857888ca?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bG9nb3xlbnwwfHwwfHx8MA%3D%3D',
     })
     const [loading, setLoading] = useState(false)
+    const [imageGeneratedURL, setImageGeneratedURL] = useState('')
     const [error, setError] = useState<string | null>(null)
     const router = useRouter()
 
@@ -52,7 +53,7 @@ const EditPSDPage: React.FC = () => {
         //   psdId: 'd209b80d-d425-4b21-b1e5-7e6dcbf4664c',
 
         const url = generateImageUrl({
-            psd_id: '433726d0-e921-455a-9533-f9bd560fe513',
+            psd_id: 'ea494e4d-1405-4ce0-842c-89222e1a6290',
             estabelecimento_nome,
             item_nome,
             preco_original,
@@ -63,6 +64,7 @@ const EditPSDPage: React.FC = () => {
         })
 
         console.log(url)
+        setImageGeneratedURL(url)
 
         // setLoading(true);
         // setError(null);
@@ -238,6 +240,9 @@ const EditPSDPage: React.FC = () => {
                         </div>
                     </div>
                 </form>
+            </div>
+            <div className="w-fit py-10 px-4 h-28">
+                <img src={imageGeneratedURL}></img>
             </div>
         </div>
     )
